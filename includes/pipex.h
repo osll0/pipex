@@ -6,7 +6,7 @@
 /*   By: seokson <seokson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 12:05:27 by seokson           #+#    #+#             */
-/*   Updated: 2025/06/03 16:57:07 by seokson          ###   ########.fr       */
+/*   Updated: 2025/07/23 10:03:29 by seokson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <sys/wait.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 char	*get_cmd_path(char *cmd, char **envp);
 

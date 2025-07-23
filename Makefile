@@ -6,23 +6,28 @@
 #    By: seokson <seokson@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/05/30 18:00:00 by seokson           #+#    #+#              #
-#    Updated: 2025/05/30 18:34:50 by seokson          ###   ########.fr        #
+#    Updated: 2025/07/23 10:03:15 by seokson          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= pipex
 BONUS		= pipex_bonus
 
-CC			= cc
-CFLAGS		= -Wall -Wextra -Werror
+INCLUDE		= includes
 
-SRCS		= main.c \
-			  pipex.c \
-			  error.c \
-			  cmd_path.c \
-			  exec.c \
-			  file_io.c \
-			  parser.c
+LIBFT_DIR	= libft
+LIBFT		= $(LIBFT_DIR)/libft.a
+
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror -I$(INCLUDE) -I$(LIBFT_DIR)
+
+SRCS		= mandatory/main.c \
+			  mandatory/pipex.c \
+			  mandatory/error.c \
+			  mandatory/cmd_path.c \
+			  mandatory/exec.c \
+			  mandatory/file_io.c \
+			  mandatory/parser.c
 
 BONUS_SRCS	= bonus/main_bonus.c \
 			  bonus/pipex_bonus.c \
@@ -32,11 +37,6 @@ BONUS_SRCS	= bonus/main_bonus.c \
 			  bonus/exec_bonus.c \
 			  bonus/file_io_bonus.c \
 			  bonus/parser_bonus.c
-
-LIBFT_DIR	= libft
-LIBFT		= $(LIBFT_DIR)/libft.a
-
-INCLUDES	= -I includes -I $(LIBFT_DIR)
 
 OBJS		= $(SRCS:.c=.o)
 BONUS_OBJS	= $(BONUS_SRCS:.c=.o)
