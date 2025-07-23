@@ -6,7 +6,7 @@
 /*   By: seokson <seokson@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/29 09:08:13 by seokson           #+#    #+#             */
-/*   Updated: 2025/06/03 17:22:22 by seokson          ###   ########.fr       */
+/*   Updated: 2025/07/23 09:22:33 by seokson          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ int	open_infile(char *infile)
 	fd = open(infile, O_RDONLY);
 	if (fd < 0)
 	{
-		fd = open("/dev/null", O_RDONLY);
-		if (fd < 0)
-			error_exit("open infile error", 1);
+		perror(infile);
+		exit(1);
 	}
 	return (fd);
 }
@@ -32,7 +31,10 @@ int	open_outfile(char *outfile)
 
 	fd = open(outfile, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd < 0)
-		error_exit("open outfile error", 1);
+	{
+		perror(outfile);
+		exit(1);
+	}
 	return (fd);
 }
 
